@@ -29,34 +29,34 @@ def generate_question():
     question_text = f"What is {num1} {operator} {num2}? "
     return question_text, correct_answer
 
-#  Answer Validator & Feedback ---
+#  Answer Validator & Feedback 
 def validate_answer(user_input, correct_answer):
     """Validates user's answer and provides immediate feedback."""
     try:
         user_answer = int(user_input)
         if user_answer == correct_answer:
-            print("✅ Correct!")
+            print(" Correct!")
             return True, True # (Is Correct, Is Valid Number)
         else:
-            print(f"❌ Incorrect. The correct answer was {correct_answer}.")
+            print(f"Incorrect. The correct answer was {correct_answer}.")
             return False, True # (Is Correct, Is Valid Number)
             
     except ValueError:
         # Error Handling: If user types text instead of a number
-        print("❌ Invalid input. Please enter a whole number.")
+        print("Invalid input. Please enter a whole number.")
         return False, False # (Is Correct, Is Valid Number)
 
 
-# --- Functional Module 3: Score Tracker & Report (Main Function) ---
+# Functional Module 3: Score Tracker & Report (Main Function)
 def start_quiz():
     """Starts the main quiz loop, tracks score, and generates the final report."""
     
     total_questions = 5  # Total questions in the quiz
     score = 0
     
-    print("\n=====================================")
-    print(f"🧠 MATH QUIZ: {total_questions} Questions")
-    print("=====================================")
+    print("\n")
+    print(f"MATH QUIZ: {total_questions} Questions")
+    
 
     for i in range(1, total_questions + 1):
         question_text, correct_answer = generate_question()
@@ -83,12 +83,11 @@ def start_quiz():
                 continue
 
     # Final Score Report (Module 3 Output)
-    print("\n============== RESULT ===============")
+    print("\nRESULT")
     print(f"Total Questions Attempted: {total_questions}")
     print(f"Correct Answers: {score}")
     final_percentage = int((score / total_questions) * 100) if total_questions > 0 else 0
     print(f"Your Score: {final_percentage}%")
-    print("=====================================")
     
 
 if __name__ == "__main__":
